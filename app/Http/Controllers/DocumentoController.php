@@ -22,9 +22,9 @@ class DocumentoController extends Controller
         $file = $request->file('file');
         $folder = "public/documents";
 
-        //$path = $request->file('file')->store('public/documents') ;
+        $path = $request->file('file')->store('public/documents') ;
 
-        $path = Storage::disk('s3')->put($folder, $file, 'public');
+        //$path = Storage::disk('s3')->put($folder, $file, 'public');
 
         $documento =  new Documento();
 
