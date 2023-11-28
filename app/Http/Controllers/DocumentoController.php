@@ -33,7 +33,7 @@ class DocumentoController extends Controller
         $documento->fecha_creacion = $request->input('fecha_creacion');
         $documento->version = $request->input('version');
         $documento->ubicacion_almacenamiento = $path;
-        //$documento->save();
+        $documento->save();
 
         return response()->json(
             ['path' => $documento,
