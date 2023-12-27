@@ -2,7 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DocumentoController;
+use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ControlCalidadController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,4 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('documento', DocumentoController::class);
+Route::apiResource('user', UserController::class);
+Route::apiResource('documento', ContratoController::class);
+
+Route::apiResource('producto', ProductoController::class);
+Route::apiResource('control-calidad', ControlCalidadController::class);
+

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Documento extends Model
+class Contrato extends Model
 {
     use HasFactory;
-    protected $table = 'documento';
+    protected $table = 'contrato';
     protected $fillable = [
         'nombre',
         'descripcion',
@@ -16,4 +16,8 @@ class Documento extends Model
         'version',
         'ubicacion_almacenamiento',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

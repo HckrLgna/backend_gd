@@ -18,6 +18,10 @@ class CreateProductoTable extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('fecha_caducidad');
+            $table->double('precio_unitario');
+            $table->boolean('activo');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
