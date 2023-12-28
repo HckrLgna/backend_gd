@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
 class ClienteSeeder extends Seeder
 {
     /**
@@ -15,13 +16,17 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('clientes')->insert([
-            'nombre' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'funcion' => Str::random(8),
-            'cargo' => Str::random(6),
-            'estatus' => true,
-            'fecha_inicio' => now(),
-        ]);
+        $faker = Faker::create();
+
+        foreach (range(1, 50) as $index) {
+            DB::table('clientes')->insert([
+                'nombre' => $faker->name,
+                'email' => $faker->unique()->safeEmail,
+                'funcion' => $faker->jobTitle,
+                'cargo' => $faker->company,
+                'estatus' => $faker->boolean,
+                'fecha_inicio' => $faker->date,
+            ]);
+        }
     }
 }
