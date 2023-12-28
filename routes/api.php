@@ -6,6 +6,7 @@ use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ControlCalidadController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('user', UserController::class);
 Route::apiResource('documento', ContratoController::class);
 
+Route::apiResource('cliente', ClienteController::class);
 Route::apiResource('producto', ProductoController::class);
 Route::apiResource('control-calidad', ControlCalidadController::class);
 
