@@ -37,6 +37,7 @@ class ContratoController extends Controller
         $documento->fecha_creacion = $request->input('fecha_creacion');
         $documento->version = $request->input('version');
         $documento->ubicacion_almacenamiento = "https://bucketdocument.s3.amazonaws.com/".$path;
+        $documento->user_id = 1;
         $documento->save();
 
         return response()->json(
